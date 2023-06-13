@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
       <main className="max-w-[100%] md:max-w-[75%]  mx-auto text-justify">
         {/* x grid o por flex?? de ser grid el ultimo elem impar? */}
         <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-1 md:gap-4 ">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
+          {data.allMarkdownRemark.edges.sort(() => (Math.random() > .5) ? 1 : -1).map(({ node }) => (
             <CardPreview data={node} key={node.fields.slug} />
           ))}
         </div>
